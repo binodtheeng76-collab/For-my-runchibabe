@@ -35,7 +35,7 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
-  window.location.href = "yes_page.html";
+  window.location.href = "yes_page.html"; // same folder
 }
 
 // floating hearts
