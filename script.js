@@ -1,24 +1,23 @@
-let messageIndex = 0;  
+let messageIndex = 0;
 
-// Messages for No button
-const messages = ["Try again!", "Nope!", "Really?", "Keep clicking!"];
+const messages = [
+  "Are you sure? 🥺",
+  "Pleaseee 💔",
+  "Think again 😭",
+  "Don’t break my heart 💘"
+];
 
-function handleNoClick() {  
-  const noButton = document.querySelector('.no-button');  
-  const yesButton = document.querySelector('.yes-button');  
+function handleNoClick() {
+  const noButton = document.querySelector(".no-button");
+  const yesButton = document.querySelector(".yes-button");
 
-  // Change No button text
-  noButton.textContent = messages[messageIndex];  
+  noButton.textContent = messages[messageIndex];
+  messageIndex = (messageIndex + 1) % messages.length;
 
-  // Move to next message
-  messageIndex = (messageIndex + 1) % messages.length;  
+  const size = parseFloat(window.getComputedStyle(yesButton).fontSize);
+  yesButton.style.fontSize = `${size + 6}px`;
+}
 
-  // Make Yes button bigger
-  const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);  
-  yesButton.style.fontSize = `${currentSize * 1.5}px`;  
-}  
-
-function handleYesClick() {  
-  // Redirect when Yes is clicked
-  window.location.href = "yes_page.html";  
+function handleYesClick() {
+  window.location.href = "yes_page.html";
 }
