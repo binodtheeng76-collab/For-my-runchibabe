@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Valentine 💗</title>
+  <title>Will you be my Valentine? 💗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      position: relative;
     }
 
     .card {
@@ -23,31 +24,44 @@
       border-radius: 25px;
       text-align: center;
       box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-      z-index: 5;
+      z-index: 10;
+      animation: floatCard 2s ease-in-out infinite alternate;
     }
 
     h1 {
       color: #e6005c;
+      font-size: 28px;
       margin-bottom: 30px;
     }
 
     button {
-      padding: 12px 30px;
+      padding: 12px 28px;
       font-size: 18px;
       border-radius: 30px;
       border: none;
       cursor: pointer;
       margin: 10px;
       transition: all 0.3s ease;
+      box-shadow: 0 0 10px #ff6699;
     }
 
     .yes {
-      background: #ff4d6d;
+      background: #ff3366;
       color: white;
+    }
+
+    .yes:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #ff3366;
     }
 
     .no {
       background: #ccc;
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
     }
 
     .heart {
@@ -58,19 +72,16 @@
     }
 
     @keyframes float {
-      from {
-        transform: translateY(100vh);
-      }
-      to {
-        transform: translateY(-10vh);
-      }
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
     }
+
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h1>Will you be my Valentine? 💕</h1>
+    <h1>Q – Will you be my Valentine? 💕</h1>
     <button class="yes" onclick="goYes()">Yes 💖</button>
     <button class="no" onclick="runNo(this)">No 🙈</button>
   </div>
@@ -97,12 +108,14 @@
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
-      heart.textContent = "💕";
+      heart.textContent = "💖";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      heart.style.fontSize = (20 + Math.random()*20) + "px";
+      heart.style.color = `hsl(${Math.random()*360}, 100%, 70%)`;
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 6000);
     }, 400);
+
   </script>
 
 </body>
