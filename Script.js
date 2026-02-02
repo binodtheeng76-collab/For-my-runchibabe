@@ -46,9 +46,7 @@ function createHeart() {
   heart.style.left = Math.random() * window.innerWidth + "px";
   heart.style.animationDuration = 2 + Math.random() * 3 + "s";
   document.body.appendChild(heart);
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+  setTimeout(() => heart.remove(), 5000);
 }
 
 setInterval(createHeart, 300);
