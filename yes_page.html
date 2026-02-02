@@ -9,12 +9,13 @@
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      position: relative;
     }
 
     .box {
@@ -28,6 +29,7 @@
 
     h1 {
       color: #e6005c;
+      font-size: 28px;
       margin-bottom: 20px;
     }
 
@@ -35,7 +37,7 @@
       width: 260px;
       max-width: 90%;
       border-radius: 20px;
-      animation: float 1.8s ease-in-out infinite alternate;
+      animation: float 2s ease-in-out infinite alternate;
     }
 
     @keyframes float {
@@ -55,32 +57,34 @@
       100% {opacity:0; transform:scale(1.6);}
     }
 
-    .signature {
+    .gf-name {
       position: fixed;
       bottom: 20px;
       right: 20px;
       font-size: 18px;
       font-weight: bold;
-      color: #fff;
-      text-shadow: 1px 1px 3px #000;
-      animation: soft 2s ease-in-out infinite alternate;
+      color: #ff3366;
+      text-shadow: 1px 1px 3px #fff;
+      z-index: 1000;
+      animation: floatText 2s ease-in-out infinite alternate;
     }
 
-    @keyframes soft {
-      from { transform: translateY(0); }
-      to { transform: translateY(-5px); }
+    @keyframes floatText {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-5px); }
     }
+
   </style>
 </head>
 <body>
 
   <div class="box">
     <h1>I love you mero runchi bacha 🙆🏼🤍</h1>
-    <img src="couple-kiss.png" alt="Couple kissing">
+    <img src="https://i.ibb.co/0J0R5vh/couple-kiss.png" alt="Couple kissing">
   </div>
 
-  <div class="signature">
-    All my love for you — Ashmita 🙆🏼🤍
+  <div class="gf-name">
+    All my love for you — ashmita 🙆🏼🤍
   </div>
 
   <!-- Music -->
@@ -89,12 +93,14 @@
   </audio>
 
   <script>
+    // Floating hearts everywhere
     setInterval(() => {
       const h = document.createElement("div");
       h.className = "heart";
       h.textContent = "💗";
       h.style.left = Math.random() * window.innerWidth + "px";
       h.style.top = Math.random() * window.innerHeight + "px";
+      h.style.fontSize = (18 + Math.random()*12) + "px";
       document.body.appendChild(h);
       setTimeout(() => h.remove(), 2000);
     }, 400);
